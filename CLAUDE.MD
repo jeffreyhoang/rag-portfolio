@@ -258,6 +258,6 @@ These additions make the project stand out beyond a tutorial clone.
 ## Current status
 
 **Active phase:** Phase 1
-**Completed:** nothing yet — project is being initialized
-**In progress:** setting up project structure and CLAUDE.md
-**Blocked by:** nothing
+**Completed:** chunker.py, embedder.py, retriever.py, reranker.py, generator.py
+and all their tests
+**In progress:** ingest.py
