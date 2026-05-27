@@ -44,8 +44,8 @@ def generator(mocker) -> Generator:
 # ---------------------------------------------------------------------------
 
 
-def test_context_is_numbered_with_source_and_page(generator: Generator) -> None:
-    """generate() builds context with [N] (source, page N): "text" format."""
+def test_context_is_labelled_with_source_and_page(generator: Generator) -> None:
+    """generate() builds context with [source] (page N): "text" format."""
     chunks = _make_chunks()
     generator._client.chat.completions.create.return_value = _mock_completion()
 
@@ -53,9 +53,9 @@ def test_context_is_numbered_with_source_and_page(generator: Generator) -> None:
 
     call_messages = generator._client.chat.completions.create.call_args.kwargs["messages"]
     context_msg = next(m for m in call_messages if "Context:" in m["content"])
-    assert '[1] (resume.pdf, page 2): "Content from resume.pdf page 2"' in context_msg["content"]
-    assert '[2] (projects.md, page 1): "Content from projects.md page 1"' in context_msg["content"]
-    assert '[3] (bio.txt, page 1): "Content from bio.txt page 1"' in context_msg["content"]
+    assert '[resume.pdf] (page 2): "Content from resume.pdf page 2"' in context_msg["content"]
+    assert '[projects.md] (page 1): "Content from projects.md page 1"' in context_msg["content"]
+    assert '[bio.txt] (page 1): "Content from bio.txt page 1"' in context_msg["content"]
 
 
 # ---------------------------------------------------------------------------
@@ -197,6 +197,52 @@ def test_memory_clear_resets_history() -> None:
     mem.clear()
 
     assert mem.get() == []
+
+
+# ---------------------------------------------------------------------------
+# rewrite_query
+# ---------------------------------------------------------------------------
+
+
+def test_rewrite_query_returns_nonempty_string(generator: Generator) -> None:
+    """rewrite_query() returns a non-empty string on success."""
+    generator._client.chat.completions.create.return_value = _mock_completion(
+        "programming experience at internships"
+    )
+    result = generator.rewrite_query("what have you done?")
+    assert isinstance(result, str)
+    assert len(result) > 0
+
+
+def test_rewrite_query_calls_api_with_rewrite_prompt(generator: Generator) -> None:
+    """rewrite_query() calls the OpenAI API exactly once with REWRITE_PROMPT."""
+    generator._client.chat.completions.create.return_value = _mock_completion(
+        "software engineering internship experience"
+    )
+    generator.rewrite_query("tell me about your work")
+
+    generator._client.chat.completions.create.assert_called_once()
+    messages = generator._client.chat.completions.create.call_args.kwargs["messages"]
+    assert messages[0]["role"] == "system"
+    assert messages[0]["content"] == Generator.REWRITE_PROMPT
+
+
+def test_rewrite_query_falls_back_on_empty_response(generator: Generator) -> None:
+    """rewrite_query() returns the original query when the API returns empty string."""
+    generator._client.chat.completions.create.return_value = _mock_completion("")
+    original = "what projects have you worked on?"
+    result = generator.rewrite_query(original)
+    assert result == original
+
+
+def test_rewrite_query_falls_back_on_rate_limit_error(generator: Generator) -> None:
+    """rewrite_query() catches RateLimitError and returns the original query."""
+    generator._client.chat.completions.create.side_effect = openai.RateLimitError(
+        message="rate limit", response=MagicMock(), body={}
+    )
+    original = "what is your background?"
+    result = generator.rewrite_query(original)
+    assert result == original
 
 
 def test_memory_add_stores_role_and_content() -> None:

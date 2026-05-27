@@ -220,7 +220,7 @@ Improve retrieval quality. All changes are in the service layer — no
 new API routes needed.
 
 - [ ] Hybrid search in `retriever.py` — add BM25 (rank-bm25) alongside
-      dense retrieval, merge results with Reciprocal Rank Fusion
+      dense retrieval, merge results with Reciprocal Rank Fusion (skip for now)
 - [ ] Multi-turn memory — add `ConversationBufferWindowMemory` to
       `generator.py` so follow-up questions work correctly
 - [ ] Query rewriting — before retrieval, ask the LLM to rephrase
@@ -257,7 +257,6 @@ These additions make the project stand out beyond a tutorial clone.
 
 ## Current status
 
-**Active phase:** Phase 1
-**Completed:** chunker.py, embedder.py, retriever.py, reranker.py, generator.py
-and all their tests
-**In progress:** ingest.py
+**Active phase:** Phase 3
+**Completed:** Phase 2
+**In progress:** Phase 3
