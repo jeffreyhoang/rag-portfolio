@@ -1,4 +1,7 @@
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_BACKEND_DIR = Path(__file__).parent
 
 
 class Settings(BaseSettings):
@@ -7,7 +10,7 @@ class Settings(BaseSettings):
     openai_api_key: str
     pinecone_api_key: str = ""
     pinecone_index_name: str = ""
-    chroma_persist_dir: str = "./chroma_db"
+    chroma_persist_dir: str = str(_BACKEND_DIR / "chroma_db")
     chroma_collection_name: str = "portfolio"
     embedding_model: str = "text-embedding-3-small"
     generation_model: str = "gpt-4o-mini"
