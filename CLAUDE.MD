@@ -43,11 +43,22 @@ rag-portfolio/
 ├── frontend/
 │   ├── src/
 │   │   ├── App.tsx
+│   │   ├── main.tsx
+│   │   ├── index.css
+│   │   ├── vite-env.d.ts
 │   │   ├── components/    # One file per component
+│   │   │   ├── ChatAssistant.tsx
 │   │   │   ├── ChatWindow.tsx
 │   │   │   ├── MessageBubble.tsx
 │   │   │   ├── CitationCard.tsx
-│   │   │   └── InputBar.tsx
+│   │   │   ├── InputBar.tsx
+│   │   │   ├── Connect.tsx
+│   │   │   ├── Education.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Projects.tsx
+│   │   │   └── StarField.tsx
 │   │   ├── hooks/
 │   │   │   └── useChat.ts
 │   │   └── api/
@@ -73,13 +84,12 @@ rag-portfolio/
 
 ---
 
-## TypeScript / React conventions
+## Javascript / React conventions
 
 - All components are functional with hooks — no class components.
-- Props interfaces are defined with TypeScript `interface`, not `type`.
-- Component files use PascalCase (`ChatWindow.tsx`).
-- Hook files use camelCase prefixed with `use` (`useChat.ts`).
-- All `fetch` / API calls go through `src/api/client.ts` — never
+- Component files use PascalCase (`ChatWindow.jsx`).
+- Hook files use camelCase prefixed with `use` (`useChat.js`).
+- All `fetch` / API calls go through `src/api/client.js` — never
   inline fetch calls inside components.
 - Use Tailwind utility classes for styling — no separate CSS files
   unless absolutely necessary.
