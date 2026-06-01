@@ -38,8 +38,6 @@ const projects = [
 ]
 
 function Projects() {
-    
-
     return (
         <div>
             {/* Title */}
