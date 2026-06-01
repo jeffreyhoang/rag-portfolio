@@ -1,5 +1,6 @@
-import { SparklesCore } from "@/components/ui/sparkles";
-import Homepage from '@/components/pages/Homepage';
+import { SparklesCore } from "@/components/ui/Sparkles";
+import { ChatAssistant } from "@/components/chat/ChatAssistant";
+import Hero from '@/components/pages/Hero';
 import Education from '@/components/pages/Education';
 import Skills from '@/components/pages/Skills';
 import Projects from '@/components/pages/Projects';
@@ -30,7 +31,7 @@ function App() {
             </div>
             <div className="relative z-10 flex flex-col items-center">
                 <div className="w-full max-w-3xl mb-12">
-                    <Homepage onClickConnect={scrollToBottom} />
+                    <Hero onClickConnect={scrollToBottom} />
                 </div>
                 <div className="w-full max-w-3xl mt-4 mb-24 md:mb-48 px-4">
                     <Education />
@@ -48,6 +49,7 @@ function App() {
                     <Footer />
                 </div>
             </div>
+            <ChatAssistant />
         </div>
     )
 }

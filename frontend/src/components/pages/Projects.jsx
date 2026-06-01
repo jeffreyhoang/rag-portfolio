@@ -1,4 +1,4 @@
-import SectionTitle from "@/components/text/SectionTitle";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { faFolderOpen } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -7,14 +7,27 @@ import { motion } from "framer-motion"
 
 const projects = [
     {
+        title: "RAG Portfolio",
+        img: "/projects/resumeai.png",
+        demo: "https://resume-ai-three-sigma.vercel.app/",
+        github: "https://github.com/jeffreyhoang/ResumeAI",
+        skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
+        description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
+    }, {
+        title: "ASL Recognition",
+        img: "/projects/resumeai.png",
+        demo: "https://resume-ai-three-sigma.vercel.app/",
+        github: "https://github.com/jeffreyhoang/ASL-Recognition",
+        skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
+        description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
+    }, {
         title: "Resume AI",
         img: "/projects/resumeai.png",
         demo: "https://resume-ai-three-sigma.vercel.app/",
         github: "https://github.com/jeffreyhoang/ResumeAI",
         skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
         description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
-    },
-    {
+    }, {
         title: "Sloka",
         demo: "https://sloka.vercel.app/",
         github: "https://github.com/jeffreyhoang/sloka",

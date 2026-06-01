@@ -6,7 +6,6 @@ from openai import OpenAI
 
 from backend.config import settings
 
-
 class Generator:
     """Assembles a grounded prompt and calls the OpenAI chat API to produce an answer."""
 
@@ -21,11 +20,13 @@ class Generator:
         "You are a professional assistant on a developer portfolio website. "
         "Recruiters and hiring managers will ask you questions about the candidate. "
         "Answer ONLY from the context chunks provided in each message. "
-        "When you use information from a chunk, cite the source inline using its filename "
-        "in square brackets, e.g. [resume.pdf] or [projects.md]. "
+        "Cite sources inline using [1], [2], [3] notation that corresponds to the "
+        "numbered chunks in the context. "
         "If the answer is not present in the provided context, respond with exactly: "
         "'I don't have that information.' — never fabricate or infer beyond the context. "
-        "Be concise and professional."
+        "Be concise and professional. "
+        "Return plain text only. Do not use markdown formatting, bold, italics, "
+        "bullet points, headers, or any special characters. Write in natural prose sentences."
     )
 
     def __init__(self) -> None:
@@ -117,7 +118,7 @@ class Generator:
             logger.error(f"OpenAI API error during generation: {exc}")
             raise RuntimeError(f"Generation failed: OpenAI API error — {exc}") from exc
 
-        sources = self._deduplicate_sources(chunks)
+        sources = [] if "I don't have that information" in answer else self._deduplicate_sources(chunks)
         return {"answer": answer, "sources": sources}
 
     def _build_context(self, chunks: list[dict[str, Any]]) -> str:

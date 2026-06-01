@@ -1,13 +1,13 @@
-import SectionTitle from "@/components/text/SectionTitle";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion"
 
 const skills = {
-    "Programming Languages": ["Python", "Java", "JavaScript", "TypeScript", "HTML", "SQL"],
-    "Frameworks": ["React", "Next.js", "Node.js", "Django", "Flask", "Tailwind CSS", "Framer Motion", "Aceternity UI"],
-    "Machine Learning Libraries": ["TensorFlow", "PyTorch", "Keras", "Matplotlib", "scikit-learn", "NumPy", "Pandas", "OpenCV"],
+    "Programming Languages": ["Python", "Java", "JavaScript", "TypeScript", "SQL"],
+    "Frameworks": ["React", "Next.js", "Node.js", "FastAPI", "Tailwind CSS", "Framer Motion", "Aceternity UI"],
+    "Machine Learning Libraries": ["PyTorch", "Tensorflow", "scikit-learn", "NumPy", "Pandas", "OpenCV", "Matplotlib", "HuggingFace", "MediaPipe", "LangChain"],
     "Systems & Tools": ["Git", "Anaconda", "VS Code", "Jupyter", "HPC (SLURM)", "CUDA / GPU Acceleration"],
-    "Databases & Cloud": ["PostgreSQL", "Supabase"],
+    "Databases & Cloud": ["PostgreSQL", "Supabase", "ChromaDB", "Pinecone"],
 };
 
 const skillMeta = {
@@ -15,26 +15,26 @@ const skillMeta = {
     "Java": { logo: "/logos/java.svg", href: "https://www.java.com/" },
     "JavaScript": { logo: "/logos/javascript.svg", href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
     "TypeScript": { logo: "/logos/typescript.svg", href: "https://www.typescriptlang.org/" },
-    "HTML": { logo: "/logos/html.svg", href: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
     "SQL": { logo: "/logos/sql.svg" },
 
     "React": { logo: "/logos/react.svg", href: "https://react.dev/" },
     "Next.js": { logo: "/logos/nextjs.png", href: "https://nextjs.org/" },
     "Node.js": { logo: "/logos/nodejs.svg", href: "https://nodejs.org/" },
-    "Django": { logo: "/logos/django.svg", href: "https://www.djangoproject.com/" },
-    "Flask": { logo: "/logos/flask.png", href: "https://flask.palletsprojects.com/" },
+    "FastAPI": { logo: "/logos/fastapi.svg", href: "https://fastapi.tiangolo.com/" },
     "Tailwind CSS": { logo: "/logos/tailwind.svg", href: "https://tailwindcss.com/" },
     "Framer Motion": { logo: "/logos/framer.svg", href: "https://www.framer.com/motion/" },
     "Aceternity UI": { logo: "/logos/aceternity.svg", href: "https://ui.aceternity.com/" },
 
     "TensorFlow": { logo: "/logos/tensorflow.svg", href: "https://www.tensorflow.org/" },
     "PyTorch": { logo: "/logos/pytorch.svg", href: "https://pytorch.org/" },
-    "Keras": { logo: "/logos/keras.svg", href: "https://keras.io/" },
-    "Matplotlib": { logo: "/logos/matplotlib.svg", href: "https://matplotlib.org/" },
     "scikit-learn": { logo: "/logos/scikit-learn.svg", href: "https://scikit-learn.org/" },
     "NumPy": { logo: "/logos/numpy.svg", href: "https://numpy.org/" },
     "Pandas": { logo: "/logos/pandas.svg", href: "https://pandas.pydata.org/" },
     "OpenCV": { logo: "/logos/opencv.svg", href: "https://opencv.org/" },
+    "Matplotlib": { logo: "/logos/matplotlib.svg", href: "https://matplotlib.org/" },
+    "HuggingFace": { logo: "/logos/huggingface.png", href: "https://huggingface.co/" },
+    "MediaPipe": { logo: "/logos/mediapipe.png", href: "https://ai.google.dev/edge/mediapipe/solutions/guide/" },
+    "LangChain": { logo: "/logos/langchain.png", href: "https://www.langchain.com/" },
 
     "Git": { logo: "/logos/git.svg", href: "https://git-scm.com/" },
     "Anaconda": { logo: "/logos/anaconda.svg", href: "https://www.anaconda.com/" },
@@ -45,6 +45,8 @@ const skillMeta = {
 
     "PostgreSQL": { logo: "/logos/postgresql.svg", href: "https://www.postgresql.org/" },
     "Supabase": { logo: "/logos/supabase.svg", href: "https://supabase.com/" },
+    "ChromaDB": { logo: "/logos/chromadb.png", href: "https://github.com/chroma-core/chroma" },
+    "Pinecone": { logo: "/logos/pinecone.png", href: "https://www.pinecone.io/" },
 
     "__default": { logo: "/logos/default.svg" },
 };

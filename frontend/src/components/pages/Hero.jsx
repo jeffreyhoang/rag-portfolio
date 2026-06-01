@@ -1,9 +1,9 @@
-import Button1 from "@/components/buttons/Button1";
+import Button1 from "@/components/ui/Button1";
 import { faFile } from '@fortawesome/free-regular-svg-icons';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion"
 
-function Homepage({ onClickConnect }) {
+function Hero({ onClickConnect }) {
     const name = "Jeffrey Hoang"
     let indexCounter = 0
 
@@ -95,7 +95,7 @@ function Homepage({ onClickConnect }) {
                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"/>
             </div>
             <p className="font-head text-zinc-400 text-center text-md md:text-lg px-8 md:px-16">
-                I'm a student software engineer passionate about building scalable, efficient, and user-friendly systems that leverage AI to deliver real-world impact.
+                Master's student in Artificial Intelligence at San José State University, passionate about building AI systems that deliver real-world impact.
             </p>
             <div className="flex mt-8 gap-4">
                 <Button1 
@@ -114,5 +114,5 @@ function Homepage({ onClickConnect }) {
     )
 };
 
-export default Homepage;
+export default Hero;
 

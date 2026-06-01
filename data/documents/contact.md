@@ -24,13 +24,4 @@ remote and hybrid arrangements.
 I am available to begin a new role immediately as long as the
 schedule accommodates my ongoing graduate coursework at San Jose
 State University. I am flexible on start dates and happy to discuss
-scheduling during the interview process.
-
----
-
-## Portfolio and Code
-
-My GitHub profile at github.com/jeffreyhoang contains the source
-code for my personal projects including the ASL real-time recognition
-system and ResumeAI. I am happy to walk through any project in
-detail during an interview or provide additional context on request.
+scheduling during the interview process.O

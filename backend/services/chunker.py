@@ -7,6 +7,8 @@ from pypdf import PdfReader
 
 from backend.config import settings
 
+import re
+
 
 class Document(TypedDict):
     text: str
@@ -19,6 +21,51 @@ class Chunk(TypedDict):
     source: str
     page: int
     chunk_index: int
+
+def clean_text(text: str) -> str:
+    """Strip markdown formatting from text while preserving all words and sentences."""
+
+    # Remove horizontal rules
+    text = re.sub(r'^---+$', '', text, flags=re.MULTILINE)
+
+    # Remove heading markers but keep the heading text
+    text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
+
+    # Remove bold and italic markers (**text**, *text*, __text__, _text_)
+    text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
+    text = re.sub(r'\*(.+?)\*', r'\1', text)
+    text = re.sub(r'__(.+?)__', r'\1', text)
+    text = re.sub(r'_(.+?)_', r'\1', text)
+
+    # Remove inline code backticks but keep the text
+    text = re.sub(r'`(.+?)`', r'\1', text)
+
+    # Remove fenced code blocks entirely
+    text = re.sub(r'```[\s\S]*?```', '', text)
+
+    # Remove blockquotes marker but keep text
+    text = re.sub(r'^>\s+', '', text, flags=re.MULTILINE)
+
+    # Remove bullet and numbered list markers but keep text
+    text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.MULTILINE)
+    text = re.sub(r'^\s*\d+\.\s+', '', text, flags=re.MULTILINE)
+
+    # Remove markdown links but keep the display text
+    text = re.sub(r'\[(.+?)\]\(.+?\)', r'\1', text)
+
+    # Remove markdown images entirely
+    text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
+
+    # Remove HTML tags if any slipped in
+    text = re.sub(r'<[^>]+>', '', text)
+
+    # Collapse multiple blank lines into one
+    text = re.sub(r'\n{3,}', '\n\n', text)
+
+    # Strip leading and trailing whitespace
+    text = text.strip()
+
+    return text
 
 
 class DocumentLoader:
@@ -40,7 +87,7 @@ class DocumentLoader:
         documents: list[Document] = []
         supported = {".pdf", ".md", ".txt"}
         files = [
-            f for f in self.directory.iterdir() if f.is_file() and f.suffix in supported
+            f for f in self.directory.rglob("*") if f.is_file() and f.suffix in supported
         ]
 
         for file in files:
@@ -81,6 +128,7 @@ class TextChunker:
         """
         chunks: list[Chunk] = []
         for doc in documents:
+            doc["text"] = clean_text(doc["text"])
             pieces = self._splitter.split_text(doc["text"])
             for idx, piece in enumerate(pieces):
                 chunks.append(

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import SectionTitle from "@/components/text/SectionTitle";
-import SuccessCheck from "@/components/misc/SuccessCheck";
+import SectionTitle from "@/components/ui/SectionTitle";
+import SuccessCheck from "@/components/ui/SuccessCheck";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";

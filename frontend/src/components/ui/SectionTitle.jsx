@@ -31,7 +31,7 @@ function SectionTitle({ title, symbol }) {
                     initial={{ rotate: 0 }}
                     whileInView={{ rotate: 360 }}
                     viewport={{ amount: 0.8 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                     <FontAwesomeIcon className="text-blue-400 text-lg md:text-2xl" icon={symbol} />
                 </motion.div>

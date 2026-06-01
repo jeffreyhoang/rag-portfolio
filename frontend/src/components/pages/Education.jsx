@@ -1,4 +1,4 @@
-import SectionTitle from "@/components/text/SectionTitle";
+import SectionTitle from "@/components/ui/SectionTitle";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion"
 
@@ -8,7 +8,7 @@ function Education() {
             name: "San Jose State University",
             degree: "Master of Science in Artificial Intelligence",
             date: "Jan 2026 – Present",
-            gpa: "Incoming graduate Student"
+            gpa: "In Progress"
         },
         {
             name: "California Polytechnic University, Pomona",

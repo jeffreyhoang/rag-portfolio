@@ -42,46 +42,38 @@ rag-portfolio/
 │       ├── test_generator.py
 │       └── test_routes.py
 ├── frontend/
-│   ├── .env.local              # Never commit — frontend env only (VITE_API_URL)
-│   ├── .env.example            # Committed frontend template
-│   ├── index.html              # Vite HTML entry point
-│   ├── vite.config.js          # Vite configuration
+│   ├── index.html
+│   ├── vite.config.js
 │   ├── package.json
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
 │   └── src/
-│       ├── main.jsx            # React entry point — mounts App
-│       ├── App.jsx             # Root component — assembles all sections
-│       ├── index.css           # Global styles and CSS variables
-│       ├── assets/
-│       │   └── avatar.jpg      # Profile photo — replace with real photo
-│       ├── components/
-│       │   ├── layout/
-│       │   │   ├── Navbar.jsx       # Fixed top nav with smooth scroll
-│       │   │   └── Footer.jsx       # Script logo, copyright, socials
-│       │   ├── sections/
-│       │   │   ├── Hero.jsx         # Name, avatar, bio, Resume + Connect btns
-│       │   │   ├── Education.jsx    # Education cards
-│       │   │   ├── Projects.jsx     # Featured projects grid
-│       │   │   └── Connect.jsx      # Contact form + info cards
-│       │   ├── chat/
-│       │   │   ├── ChatAssistant.jsx  # Floating button + orchestrates chat
-│       │   │   ├── ChatWindow.jsx     # Chat overlay window
-│       │   │   ├── MessageBubble.jsx  # Single message with citations
-│       │   │   ├── CitationCard.jsx   # Source pill component
-│       │   │   └── InputBar.jsx       # Text input + send button
-│       │   └── ui/
-│       │       ├── StarField.jsx      # Animated canvas star background
-│       │       ├── SectionTag.jsx     # Reusable "section label" component
-│       │       └── Button.jsx         # Reusable button variants
-│       ├── hooks/
-│       │   ├── useChat.js        # Chat state, session, API calls
-│       │   └── useScrollSpy.js   # Highlights active nav link on scroll
+│       ├── App.jsx
+│       ├── index.css
+│       ├── main.jsx
 │       ├── api/
-│       │   └── client.js         # All fetch calls to backend — never inline
-│       └── constants/
-│           └── content.js        # All static text content — projects, education,
-                                  # bio, links. Never hardcode strings in components.
+│       │   └── client.js           # All fetch calls to backend — never inline
+│       ├── hooks/
+│       │   └── useChat.js          # Chat state, session ID, API calls
+│       ├── components/
+│       │   ├── pages/
+│       │   │   ├── Connect.jsx
+│       │   │   ├── Education.jsx
+│       │   │   ├── Footer.jsx
+│       │   │   ├── Homepage.jsx
+│       │   │   ├── Projects.jsx
+│       │   │   └── Skills.jsx
+│       │   ├── chat/
+│       │   │   ├── ChatAssistant.jsx   # Floating button + orchestrates chat
+│       │   │   ├── ChatWindow.jsx      # Chat overlay window
+│       │   │   ├── MessageBubble.jsx   # Single message with citations
+│       │   │   ├── CitationCard.jsx    # Source pill component
+│       │   │   └── InputBar.jsx        # Text input + send button
+│       │   └── ui/
+│       │       ├── Button1.jsx
+│       │       ├── SectionTitle.jsx
+│       │       ├── Sparkles.jsx
+│       │       └── SuccessCheck.jsx
+│       └── lib/
+│           └── utils.js
 └── data/
     └── documents/              # Source .md, .pdf, .txt files for ingestion
 ```
