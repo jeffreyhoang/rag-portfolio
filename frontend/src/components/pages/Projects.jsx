@@ -8,32 +8,39 @@ import { motion } from "framer-motion"
 const projects = [
     {
         title: "RAG Portfolio",
-        img: "/projects/resumeai.png",
-        demo: "https://resume-ai-three-sigma.vercel.app/",
-        github: "https://github.com/jeffreyhoang/ResumeAI",
-        skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
-        description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
+        img: "/projects/rag-portfolio.png",
+        demo: "https://github.com/jeffreyhoang/rag-portfolio",
+        github: "https://github.com/jeffreyhoang/rag-portfolio",
+        skills: ["Python", "Fast API", "React", "LangChain", "HuggingFace", "OpenAI API", "ChromaDB / Pinecone", "Tailwind CSS"],
+        description: "Production RAG pipeline with cosine similarity retrieval, cross-encoder reranking, and ragas evaluation - powering the AI assistant on this portfolio."
     }, {
         title: "ASL Recognition",
-        img: "/projects/resumeai.png",
-        demo: "https://resume-ai-three-sigma.vercel.app/",
+        img: "/projects/asl-recognition.png",
+        demo: "https://github.com/jeffreyhoang/ASL-Recognition",
         github: "https://github.com/jeffreyhoang/ASL-Recognition",
-        skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
-        description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
+        skills: ["Python", "PyTorch", "MediaPipe", "Flask", "React", "OpenCV", "BiLSTM", "Transformer"],
+        description: "Real-time ASL recognition system achieving 73% accuracy using BiLSTM with self-attention to convert webcam-captured hand movements into coherent text."
+    }, {
+        title: "Multimodal Sentiment Analysis",
+        img: "/projects/sentiment-analysis.png",
+        demo: "https://github.com/jeffreyhoang/Multimodal-Sentiment-Analysis",
+        github: "https://github.com/jeffreyhoang/Multimodal-Sentiment-Analysis",
+        skills: ["Python", "PyTorch", "ResNet", "BERT", "HuggingFace", "scikit-learn"],
+        description: "Sentiment analysis system comparing unimodal and multimodal models using text and image data, evaluating score-level, embedding-level, and gated fusion strategies."
     }, {
         title: "Resume AI",
         img: "/projects/resumeai.png",
         demo: "https://resume-ai-three-sigma.vercel.app/",
         github: "https://github.com/jeffreyhoang/ResumeAI",
-        skills: ["Python", "Javascript", "React", "Flask", "Tailwind CSS"],
+        skills: ["Python", "Javascript", "Flask", "React", "Tailwind CSS", "OpenAI API"],
         description: "AI-assisted resume builder that formats your information into a professional PDF and delivers personalized improvement suggestions."
     }, {
         title: "Sloka",
         demo: "https://sloka.vercel.app/",
         github: "https://github.com/jeffreyhoang/sloka",
         img: "/projects/sloka.png",
-        skills: ["Typescript", "Next.js", "Tailwind CSS", "Framer Motion", "Supabase"],
-        description: "A full-stack web application for K–12 education that leverages AI to deliver personalized, adaptive learning experiences."
+        skills: ["Typescript", "Next.js", "Tailwind CSS", "Framer Motion", "Supabase", "OpenAI API"],
+        description: "Full-stack web application for K–12 education that leverages AI to deliver personalized, adaptive learning experiences."
     }
 ]
 
@@ -53,7 +60,7 @@ function Projects() {
                         viewport={{ amount: 0.1 }}
                         transition={{ duration: 0.4, ease: "easeOut" }}
                         className="
-                            group relative overflow-hidden rounded-2xl
+                            group relative overflow-hidden rounded-2xl flex flex-col
                             border border-indigo-400/20
                             bg-gradient-to-b from-indigo-500/10 via-indigo-400/[0.06] to-indigo-900/[0.08]
                             shadow-[0_0_0_1px_rgba(255,255,255,0.03)]
@@ -70,7 +77,7 @@ function Projects() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-3 p-4">
+                        <div className="flex flex-col gap-3 p-4 flex-1 justify-between">
                             <h2 className="font-head font-semibold text-md md:text-lg text-indigo-50">
                                 {project.title}
                             </h2>
