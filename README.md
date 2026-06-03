@@ -14,7 +14,6 @@ Documents in `data/documents/` are loaded, chunked, embedded, and stored in a ve
 
 ```
 data/documents/
-    ├── resume.pdf
     ├── projects/*.md
     ├── experience/*.md
     └── faq.md
