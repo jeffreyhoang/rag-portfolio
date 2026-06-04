@@ -8,7 +8,7 @@ function Education() {
             name: "San Jose State University",
             degree: "Master of Science in Artificial Intelligence",
             date: "Jan 2026 – Present",
-            gpa: "In Progress"
+            gpa: "GPA: 3.53 / 4.00"
         },
         {
             name: "California Polytechnic University, Pomona",
