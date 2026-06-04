@@ -138,4 +138,4 @@ npm run dev
 
 ## Live Demo
 
-[View Portfolio →](#) *(link coming soon)*
+**Live Site:** [rag-portfolio-pi.vercel.app](https://rag-portfolio-pi.vercel.app)
