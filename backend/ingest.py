@@ -35,7 +35,7 @@ def run_ingestion() -> int:
     logger.info(f"Embedding {len(chunks)} chunks in batches...")
     embedded_chunks = embedder.embed(chunks)
 
-    logger.info("Storing chunks in ChromaDB...")
+    logger.info("Storing chunks in vector store...")
     store.add(embedded_chunks)
     logger.info(f"Ingestion complete — {len(embedded_chunks)} chunks stored")
 
